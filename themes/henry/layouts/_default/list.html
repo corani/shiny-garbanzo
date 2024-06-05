@@ -1,0 +1,60 @@
+{{ define "content" }}
+
+<section class="post-index">
+
+    {{ if .Content }}
+        <h2 class="post-list-header">{{ .Title }}</h2>
+        {{.Content}}
+    {{ end }}
+
+
+    {{ $pages := "" }}
+
+    {{ if eq .Section "blog" }}
+        <!-- show *all* posts (otherwise only /blog posts will be filtered) -->
+        {{ $pages = .Site.RegularPages }}
+    {{ else }}
+        {{ $pages = .Pages }}
+    {{ end}}
+
+    <!-- filter pages that shouldn't be shown on index -->
+    {{ $pages = where $pages "Params.noindex" "!=" true }}
+
+    {{ if .Site.Params.InvisibleSections }}
+    <!-- filter out invisible sections (unless your listing the invisible section page itself) -->
+        {{ if not (in .Site.Params.InvisibleSections .Section) }}
+            {{ $pages = where $pages ".Section" "not in" .Site.Params.InvisibleSections }}
+        {{ end }}
+    {{ end }}
+
+    {{ if .Data.Terms }}
+    <!-- in a category or tag page -->
+        {{ range $group, $pages := .Data.Terms }}
+            <h2 class="post-list-header term" id="{{ $group }}">#{{ $group }}</h2>
+            <div class="post-list-content">
+                {{ range $pages }}
+                    {{ .Render "li" }}
+                {{ end }}
+            </div>
+        {{ end }}
+
+    {{ else }}
+    <!-- in a main list page -->
+        {{ range $pages.GroupByDate "2006" }}
+            <h2 class="post-list-header year" id="{{ .Key }}">
+                {{ .Key }}
+                <!-- {{ if eq hugo.Environment "development" }} - {{len .Pages}} posts{{ end }} -->
+            </h2>
+            <div class="post-list-content">
+                {{ range .Pages }}
+                    {{ .Render "li" }}
+                {{ end }}
+            </div>
+        {{ end }}
+    {{ end }}
+
+    <!-- show RHS navbar content -->
+    {{- partial "navbar.html" . -}}
+</section>
+
+{{ end }}
