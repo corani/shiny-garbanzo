@@ -1,4 +1,4 @@
-baseURL = 'https://corani.github.io/shiny-garbanzo/'
+baseURL = 'https://shiny-garbanzo.loadingdata.nl/'
 languageCode = 'en-us'
 title = 'My demo site'
 theme = "henry"
