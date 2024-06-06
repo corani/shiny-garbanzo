@@ -1,6 +1,9 @@
 +++
 title = 'Hello World'
 date = 2024-06-05T18:50:40+08:00
+tags = ['hello']
+[params]
+  author = 'Daniel Bos'
 +++
 
 Nice, you can edit this directly from the web[^1], even on mobile. Though for editing single pages

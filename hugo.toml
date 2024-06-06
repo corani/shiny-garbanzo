@@ -2,3 +2,8 @@ baseURL = 'https://shiny-garbanzo.loadingdata.nl/'
 languageCode = 'en-us'
 title = 'My demo site'
 theme = "henry"
+[taxonomies]
+    tag = "tags"
+    category = "categories"
+[params]
+    ExternalLinkIndicator = "»"
