@@ -26,8 +26,13 @@
     "enabledManagers": ["github-actions","regex"],
     "regexManagers": [
         {
-            "fileMatch": [ "^\\.github/workflows/.*\\.yml" ],
-            "matchStrings": [ "HUGO_VERSION: (?<currentValue>.+?" ],
+            "fileMatch": [ 
+                "^\\.github/workflows/.*\\.yaml",
+                "^\\.github/workflows/.*\\.yml"
+            ],
+            "matchStrings": [ 
+                "HUGO_VERSION: (?<currentValue>.+)"
+            ],
             "datasourceTemplate": "github-releases",
             "depNameTemplate": "gohugoio/hugo"
         }
