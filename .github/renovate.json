@@ -1,0 +1,35 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended"
+    ],
+    "packageRules": [
+        {
+            "matchUpdateTypes": ["patch", "digest"],
+            "labels": ["renovate", "patch-update"],
+            "automerge": true
+        },
+        {
+            "matchUpdateTypes": ["minor"],
+            "labels": ["renovate", "minor-update"],
+            "automerge": true
+        },
+        {
+            "matchUpdateTypes": ["major"],
+            "labels": ["renovate", "major-update"],
+            "dependencyDashboardApproval": true
+        }
+    ],
+    "dependencyDashboardLabels": ["renovate"],
+    "automergeType": "pr",
+    "platformAutomerge": true,
+    "enabledManagers": ["github-actions","regex"],
+    "regexManagers": [
+        {
+            "fileMatch": [ "^\\.github/workflows/.*\\.yml" ],
+            "matchStrings": [ "HUGO_VERSION: (?<currentValue>.+?" ],
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "gohugoio/hugo"
+        }
+    ]
+}
