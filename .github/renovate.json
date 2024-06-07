@@ -27,7 +27,7 @@
     "regexManagers": [
         {
             "fileMatch": [ "^\\.github/workflows/.*\\.yml" ],
-            "matchStrings": [ "HUGO_VERSION: (?<currentValue>.+?" ],
+            "matchStrings": [ "HUGO_VERSION: (?<currentValue>.+?)" ],
             "datasourceTemplate": "github-releases",
             "depNameTemplate": "gohugoio/hugo"
         }
