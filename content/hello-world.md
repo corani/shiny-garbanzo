@@ -17,3 +17,4 @@ the GitHub app is more convenient.
 
 [^1]: By using https://github.dev/corani/shiny-garbanzo
 
+[![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%203.svg)](https://www.digitalocean.com/?refcode=dcdcc49d2169&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
