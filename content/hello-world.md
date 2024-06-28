@@ -2,6 +2,7 @@
 title = 'Hello World'
 date = 2024-06-05T18:50:40+08:00
 tags = ['hello']
+counter = 33
 [params]
   author = 'Daniel Bos'
 +++

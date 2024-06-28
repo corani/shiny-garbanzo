@@ -1,0 +1,7 @@
+{{- $total := 0 -}}
+{{- range .Site.Pages -}}
+    {{- if .Params.counter -}}
+        {{- $total = add $total .Params.counter -}}
+    {{- end -}}
+{{- end -}}
+{{- $total -}}
